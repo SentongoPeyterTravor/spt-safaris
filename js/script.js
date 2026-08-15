@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Newsletter + contact + booking forms (demo handlers)
+  // Note: Contact form is now handled by js/email.js
   document.querySelectorAll('form[data-demo]').forEach(form=>{
     if(form.id === 'contact-form') return;
 
@@ -102,72 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
       form.reset();
     });
   });
-
-  const contactForm = document.getElementById('contact-form');
-  if(contactForm){
-    contactForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const msg = this.querySelector('.form-msg');
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
-
-      if(submitBtn){
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-      }
-
-      if(msg){
-        msg.textContent = '';
-        msg.style.color = '#127a3d';
-      }
-
-      const serviceID = 'service_6nh3yus';
-      const templateID = 'whid7mq';
-
-      const formData = new FormData(this);
-      const formValues = {};
-      formData.forEach((value, key) => {
-        formValues[key] = value;
-      });
-
-      if(!window.emailjs || typeof emailjs.sendForm !== 'function'){
-        console.error('EmailJS SDK not loaded or sendForm unavailable', window.emailjs);
-        if(msg){
-          msg.textContent = 'Email service is not available. Please try again later.';
-          msg.style.color = '#b42318';
-        }
-        if(submitBtn){
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnText;
-        }
-        return;
-      }
-
-      console.log('EmailJS sending form', {serviceID, templateID, formValues});
-
-      emailjs.sendForm(serviceID, templateID, this)
-        .then((result)=>{
-          console.log('EmailJS success', result);
-          if(msg){
-            msg.textContent = 'Thank you! Your message has been sent successfully.';
-          }
-          this.reset();
-        })
-        .catch((error)=>{
-          console.error('EmailJS error:', error);
-          if(msg){
-            msg.textContent = 'Sorry, your message could not be sent right now. Please try again later.';
-            msg.style.color = '#b42318';
-          }
-        })
-        .finally(()=>{
-          if(submitBtn){
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-          }
-        });
-    });
-  }
 
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');

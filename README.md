@@ -3,7 +3,7 @@
 A full multi-page safari tour website themed around the SPT Safaris logo (forest green + warm orange), built with plain HTML, CSS, and JavaScript — no build tools required.
 
 ## Pages included
-- `index.html` — Home (hero + search bar, stats, why-us, about preview, featured tours, destinations, testimonials, blog preview, newsletter)
+- `index.html` — Home (hero + search bar, stats, why-us, about preview, featured tours, destinations, testimonials,community, blog preview, newsletter)
 - `about.html` — About Us, values, team
 - `tours.html` — All tour packages grid
 - `tour-detail.html` — Single tour detail page with itinerary, FAQs, booking sidebar
