@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FNR Safari Estimate | SPT Safaris</title>
+<meta name="description" content="Build a transparent Foreign Non-Resident safari estimate for Uganda with SPT Safaris.">
+<link rel="icon" href="images/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="topbar"><div class="container"><div class="topbar-links"><span><i class="fa-solid fa-phone"></i> +256 700 511 775 / +256 778487475</span><span><i class="fa-solid fa-envelope"></i> sptsafaritours@gmail.com</span><span><i class="fa-solid fa-location-dot"></i> Rubaga Kampala</span></div><div class="socials"><a href="https://wa.me/256778487475" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a></div></div></div>
+<header class="navbar"><div class="container nav-inner">
+  <a href="index.html" class="brand"><img src="images/logo.png" alt="SPT Safaris Logo"><span class="brand-text"><strong>SPT Safaris</strong></span></a>
+  <nav class="nav-links" id="navLinks"><a href="index.html" data-nav="index">Home</a><div class="dropdown"><a href="tours.html" data-nav="tours">Tours <i class="fa-solid fa-chevron-down"></i></a><div class="dropdown-menu"><a href="tours.html">Gorilla Trekking</a><a href="tours.html">Wildlife Safaris</a><a href="tours.html">Mountain &amp; Hiking</a></div></div><a href="destinations.html" data-nav="destinations">Destinations</a><a href="about.html">About Us</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="contact.html" data-nav="contact">Contact</a></nav>
+  <div class="nav-cta"><a href="contact.html" class="btn btn-green"><i class="fa-solid fa-paper-plane"></i><span>Plan My Trip</span></a><button class="hamburger" id="hamburger"><span></span><span></span><span></span></button></div>
+</div></header>
+<section class="page-header"><div class="container"><h1>Build Your Safari Estimate</h1><div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>FNR Quotation</span></div></div></section>
+<main class="quote-page"><section><div class="container quote-layout">
+  <form class="quote-panel" id="quote-form">
+    <div class="eyebrow">For foreign non-residents</div><h2>Start with the shape of your trip</h2><p class="quote-intro">Use this as a planning estimate. Park fees and activity prices are shown separately so you can see what is driving the quote before we tailor transport, lodging and dates.</p>
+    <div class="form-row"><div class="form-group"><label for="travelers">Travelers</label><input id="travelers" type="number" min="1" max="30" value="2" required></div><div class="form-group"><label for="days">Safari days</label><input id="days" type="number" min="1" max="30" value="4" required></div></div>
+    <div class="quote-section"><h3>Choose a starting package</h3><div class="quote-options"><label class="quote-option"><input type="radio" name="package" value="gorilla" checked><span><strong>Gorilla encounter</strong><small>4 days · Bwindi · $650/person base</small></span></label><label class="quote-option"><input type="radio" name="package" value="wildlife"><span><strong>Uganda wildlife loop</strong><small>6 days · QENP + Murchison · $900/person base</small></span></label><label class="quote-option"><input type="radio" name="package" value="primate"><span><strong>Primate trail</strong><small>5 days · Kibale + Semuliki · $720/person base</small></span></label><label class="quote-option"><input type="radio" name="package" value="custom"><span><strong>Custom parks</strong><small>Choose your own route below</small></span></label></div></div>
+    <div class="quote-section"><h3>Uganda park access <small>(FNR, per person)</small></h3><div class="quote-options" id="park-options"></div></div>
+    <div class="quote-section"><h3>Core activities <small>(FNR, per person)</small></h3><div class="quote-options" id="activity-options"></div></div>
+    <div class="quote-section"><h3>Planning assumptions</h3><div class="form-row"><div class="form-group"><label for="season">Travel season</label><select id="season"><option value="1">Standard season</option><option value="1.1">Peak season (+10%)</option><option value="0.9">Green season (-10%)</option></select></div><div class="form-group"><label for="comfort">Lodging style</label><select id="comfort"><option value="0">Comfortable</option><option value="180">Premium (+$180/person/day)</option><option value="-90">Value (-$90/person/day)</option></select></div></div></div>
+    <div class="quote-actions"><button type="button" class="btn btn-green" id="reset-quote"><i class="fa-solid fa-rotate-left"></i> Reset</button><button type="submit" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Request This Quote</button></div>
+  </form>
+  <aside class="quote-summary" id="quote-summary"><h2>Your planning estimate</h2><p>Update the choices to see your live estimate.</p><div class="quote-total-label">Estimated total</div><div class="quote-total" id="quote-total">$0</div><div class="quote-line"><span>Travelers</span><strong id="summary-travelers">2</strong></div><div class="quote-line"><span>Days</span><strong id="summary-days">4</strong></div><div class="quote-breakdown" id="quote-breakdown"><div class="quote-empty">Choose a package, park or activity to build your estimate.</div></div><div class="quote-actions"><button type="button" class="btn btn-primary" id="print-quote"><i class="fa-solid fa-print"></i> Print Estimate</button><a href="contact.html" class="btn btn-outline"><i class="fa-solid fa-user-tie"></i> Talk to SPT</a></div><p class="quote-note">Planning estimates only. Final pricing depends on dates, availability, permits, accommodation and transport. Fees should be reconfirmed with SPT before payment.</p></aside>
+</div></section></main>
+<footer class="footer"><div class="container footer-bottom"><p>© 2026 SPT Safaris. Transparent planning for meaningful journeys.</p><p><a href="destinations.html">Explore destinations</a></p></div></footer>
+<script src="js/script.js"></script>
+<script>
+const parkFees = {
+  bwindi: { name: 'Bwindi Impenetrable Forest', fee: 40, note: 'Gorilla habitat' },
+  mgahinga: { name: 'Mgahinga Gorilla National Park', fee: 40, note: 'Volcanoes & gorillas' },
+  kibale: { name: 'Kibale National Park', fee: 40, note: 'Primate forest' },
+  queen: { name: 'Queen Elizabeth National Park', fee: 40, note: 'Big game & channel' },
+  murchison: { name: 'Murchison Falls National Park', fee: 45, note: 'Nile & savannah' },
+  mburo: { name: 'Lake Mburo National Park', fee: 40, note: 'Walking & lake safari' },
+  kidepo: { name: 'Kidepo Valley National Park', fee: 40, note: 'Remote wilderness' },
+  semuliki: { name: 'Semuliki National Park', fee: 35, note: 'Hot springs & birds' }
+};
+const activities = {
+  gorilla: { name: 'Gorilla trekking permit', fee: 800, parks: ['bwindi', 'mgahinga'] },
+  golden: { name: 'Golden monkey tracking', fee: 100, parks: ['mgahinga'] },
+  chimp: { name: 'Chimpanzee tracking', fee: 250, parks: ['kibale'] },
+  boat: { name: 'Kazinga Channel boat cruise', fee: 40, parks: ['queen'] },
+  murchisonBoat: { name: 'Murchison Nile launch trip', fee: 35, parks: ['murchison'] },
+  walking: { name: 'Guided walking safari', fee: 35, parks: ['mburo', 'kidepo', 'semuliki'] }
+};
+const packages = {
+  gorilla: { base: 650, parks: ['bwindi'], activities: ['gorilla'] },
+  wildlife: { base: 900, parks: ['queen', 'murchison'], activities: ['boat', 'murchisonBoat'] },
+  primate: { base: 720, parks: ['kibale', 'semuliki'], activities: ['chimp'] },
+  custom: { base: 0, parks: [], activities: [] }
+};
+const money = value => '$' + Math.round(value).toLocaleString('en-US');
+const parkOptions = document.getElementById('park-options');
+const activityOptions = document.getElementById('activity-options');
+parkOptions.innerHTML = Object.entries(parkFees).map(([key, park]) => `<label class="quote-option"><input type="checkbox" name="park" value="${key}"><span><strong>${park.name}</strong><small>${money(park.fee)} FNR / person · ${park.note}</small></span></label>`).join('');
+activityOptions.innerHTML = Object.entries(activities).map(([key, activity]) => `<label class="quote-option"><input type="checkbox" name="activity" value="${key}"><span><strong>${activity.name}</strong><small>${money(activity.fee)} FNR / person</small></span></label>`).join('');
+const form = document.getElementById('quote-form');
+const selected = name => [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(input => input.value);
+function setChecked(name, values) { form.querySelectorAll(`input[name="${name}"]`).forEach(input => { input.checked = values.includes(input.value); }); }
+function calculateQuote() {
+  const travelers = Math.max(1, Number(document.getElementById('travelers').value) || 1);
+  const days = Math.max(1, Number(document.getElementById('days').value) || 1);
+  const packageKey = form.querySelector('input[name="package"]:checked').value;
+  const chosenPackage = packages[packageKey];
+  const parks = selected('park');
+  const activityKeys = selected('activity');
+  const base = chosenPackage.base * travelers;
+  const parkTotal = parks.reduce((sum, key) => sum + parkFees[key].fee, 0) * travelers;
+  const activityTotal = activityKeys.reduce((sum, key) => sum + activities[key].fee, 0) * travelers;
+  const lodging = (days * Number(document.getElementById('comfort').value || 0)) * travelers;
+  const subtotal = base + parkTotal + activityTotal + lodging;
+  const total = subtotal * Number(document.getElementById('season').value || 1);
+  document.getElementById('quote-total').textContent = money(total);
+  document.getElementById('summary-travelers').textContent = travelers;
+  document.getElementById('summary-days').textContent = days;
+  const lines = [];
+  if (base) lines.push(['Package base', money(base)]);
+  if (parkTotal) lines.push(['Park entrance fees', money(parkTotal)]);
+  if (activityTotal) lines.push(['Activities & permits', money(activityTotal)]);
+  if (lodging) lines.push(['Lodging adjustment', money(lodging)]);
+  if (Number(document.getElementById('season').value) !== 1) lines.push(['Season adjustment', money(total - subtotal)]);
+  document.getElementById('quote-breakdown').innerHTML = lines.length ? lines.map(line => `<div class="quote-line"><span>${line[0]}</span><strong>${line[1]}</strong></div>`).join('') : '<div class="quote-empty">Choose a package, park or activity to build your estimate.</div>';
+}
+form.addEventListener('change', event => {
+  if (event.target.name === 'package') {
+    const chosen = packages[event.target.value];
+    setChecked('park', chosen.parks);
+    setChecked('activity', chosen.activities);
+  }
+  calculateQuote();
+});
+form.addEventListener('input', calculateQuote);
+document.getElementById('reset-quote').addEventListener('click', () => { form.reset(); setChecked('park', packages.gorilla.parks); setChecked('activity', packages.gorilla.activities); calculateQuote(); });
+document.getElementById('print-quote').addEventListener('click', () => window.print());
+form.addEventListener('submit', event => { event.preventDefault(); const packageName = form.querySelector('input[name="package"]:checked').parentElement.querySelector('strong').textContent; alert(`Your ${packageName} estimate is ${document.getElementById('quote-total').textContent}. SPT Safaris will help turn it into a confirmed itinerary.`); });
+setChecked('park', packages.gorilla.parks); setChecked('activity', packages.gorilla.activities); calculateQuote();
+</script>
+</body>
+</html>

@@ -2,10 +2,22 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  document.querySelectorAll('.topbar-links span, .foot-contact span, .cinfo-item span').forEach(detail => {
+    const value = detail.textContent.trim();
+    if(value.includes('@')){
+      detail.innerHTML = `<a href="mailto:${value}">${value}</a>`;
+    } else if(value.match(/\+256/)){
+      const phone = value.match(/\+256\s*700\s*511\s*775|\+256\s*778\s*487\s*475/)?.[0]?.replace(/\s/g, '') || '';
+      if(phone) detail.innerHTML = `<a href="tel:${phone}">${value}</a>`;
+    }
+  });
+
   // Active nav-link highlighting
   const page = (location.pathname.split('/').pop() || 'index.html').replace('.html','') || 'index';
+  const destinationPages = ['bwindi', 'queen-elizabeth', 'masai-mara', 'serengeti', 'murchison-falls', 'rwenzori-mountains', 'lake-mburo', 'volcanoes'];
+  const navPage = destinationPages.includes(page) ? 'destinations' : page;
   document.querySelectorAll('.nav-links > a[data-nav], .nav-links .dropdown > a[data-nav]').forEach(link=>{
-    if(link.dataset.nav === page) link.style.color = 'var(--green-700)';
+    if(link.dataset.nav === navPage) link.classList.add('active');
   });
 
   // Mobile nav toggle
@@ -24,9 +36,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Sticky nav shadow on scroll + back to top button
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.hero-dot');
+  const heroSlideshow = document.querySelector('.hero-slideshow');
+  if(heroSlides.length > 1){
+    let activeSlide = 0;
+    let heroTimer;
+    const showHeroSlide = index => {
+      activeSlide = (index + heroSlides.length) % heroSlides.length;
+      heroSlides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === activeSlide));
+      heroDots.forEach((dot, dotIndex) => {
+        const selected = dotIndex === activeSlide;
+        dot.classList.toggle('is-active', selected);
+        dot.setAttribute('aria-selected', String(selected));
+      });
+    };
+    const restartHeroTimer = () => {
+      clearInterval(heroTimer);
+      heroTimer = setInterval(() => showHeroSlide(activeSlide + 1), 6000);
+    };
+    document.querySelector('.hero-prev')?.addEventListener('click', () => { showHeroSlide(activeSlide - 1); restartHeroTimer(); });
+    document.querySelector('.hero-next')?.addEventListener('click', () => { showHeroSlide(activeSlide + 1); restartHeroTimer(); });
+    heroDots.forEach(dot => dot.addEventListener('click', () => { showHeroSlide(Number(dot.dataset.slideTo)); restartHeroTimer(); }));
+    heroSlideshow.addEventListener('mouseenter', () => clearInterval(heroTimer));
+    heroSlideshow.addEventListener('mouseleave', restartHeroTimer);
+    heroSlideshow.addEventListener('focusin', () => clearInterval(heroTimer));
+    heroSlideshow.addEventListener('focusout', restartHeroTimer);
+    restartHeroTimer();
+  }
+
+  // Shrink the sticky navigation while scrolling down and restore it when scrolling up.
+  const navbar = document.querySelector('.navbar');
+  let lastScrollY = window.scrollY;
+  const updateNavbar = () => {
+    const currentScrollY = window.scrollY;
+    if(navbar){
+      const scrollDelta = currentScrollY - lastScrollY;
+      if(currentScrollY < 50){
+        navbar.classList.remove('nav-shrunk');
+      } else if(scrollDelta > 4){
+        navbar.classList.add('nav-shrunk');
+      } else if(scrollDelta < -4){
+        navbar.classList.remove('nav-shrunk');
+      }
+    }
+    lastScrollY = currentScrollY;
+  };
+
+  // Back to top button
   const totop = document.querySelector('.totop');
   window.addEventListener('scroll', () => {
+    updateNavbar();
     if(totop){
       if(window.scrollY > 400) totop.classList.add('show');
       else totop.classList.remove('show');

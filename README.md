@@ -8,9 +8,12 @@ A full multi-page safari tour website themed around the SPT Safaris logo (forest
 - `tours.html` — All tour packages grid
 - `tour-detail.html` — Single tour detail page with itinerary, FAQs, booking sidebar
 - `destinations.html` — National parks / destinations grid
+- `bwindi.html`, `queen-elizabeth.html`, `masai-mara.html`, `serengeti.html` — Dedicated destination field notes
+- `murchison-falls.html`, `rwenzori-mountains.html`, `lake-mburo.html`, `volcanoes.html` — Dedicated destination field notes
 - `gallery.html` — Filterable photo gallery
 - `blog.html` — Blog/journal listing
 - `contact.html` — Contact form, info card, embedded map
+- `quotation.html` — Interactive FNR Uganda park-fee and activity quotation calculator
 
 ## How to use in VS Code
 1. Unzip this folder and open it in VS Code (`File > Open Folder`).

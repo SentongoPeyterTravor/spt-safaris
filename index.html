@@ -38,9 +38,9 @@
       <span class="brand-text"><strong>SPT Safaris</strong></span>
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
+      <a href="index.html" data-nav="index">Home</a>
       <div class="dropdown">
-        <a href="tours.html">Tours <i class="fa-solid fa-chevron-down" style="font-size:.65rem;"></i></a>
+        <a href="tours.html" data-nav="tours">Tours <i class="fa-solid fa-chevron-down" style="font-size:.65rem;"></i></a>
         <div class="dropdown-menu">
           <a href="tours.html">Gorilla Trekking</a>
           <a href="tours.html">Wildlife Safaris</a>
@@ -49,12 +49,12 @@
           <a href="tours.html">Cultural Tours</a>
         </div>
       </div>
-      <a href="destinations.html">Destinations</a>
-      <a href="about.html">About Us</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="blog.html">Blog</a>
-      <a href="community.html">Community</a>
-      <a href="contact.html">Contact</a>
+      <a href="destinations.html" data-nav="destinations">Destinations</a>
+      <a href="about.html" data-nav="about">About Us</a>
+      <a href="gallery.html" data-nav="gallery">Gallery</a>
+      <a href="blog.html" data-nav="blog">Blog</a>
+      <a href="community.html" data-nav="community">Community</a>
+      <a href="contact.html" data-nav="contact">Contact</a>
     </nav>
     <div class="nav-cta">
       <a href="contact.html" class="btn btn-green"><i class="fa-solid fa-paper-plane"></i><span>Plan My Trip</span></a>
@@ -65,6 +65,24 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-slideshow" aria-label="SPT Safaris destinations" aria-roledescription="carousel">
+    <div class="hero-slide is-active" data-slide="0"><img src="filedphoto.jpeg" alt="Lion resting in the Ugandan savannah"></div>
+    <div class="hero-slide" data-slide="1"><img src="van.jpeg" alt="Gorilla trekking in Bwindi Forest"></div>
+    <div class="hero-slide" data-slide="2"><img src="Entrance RNP.png" alt="Wildlife on the Masai Mara plains"></div>
+    <div class="hero-slide" data-slide="3"><img src="river elephants.jpeg" alt="Wide Serengeti landscape at sunrise"></div>
+    <div class="hero-slide" data-slide="1"><img src="wild elephant.jpeg" alt="Gorilla trekking in Bwindi Forest"></div>
+    <div class="hero-slide" data-slide="4"><img src="murchison picture.jpeg" alt="Rwenzori Mountains in Uganda"></div>
+    <div class="hero-slide" data-slide="1"><img src="murchison.jpeg" alt="Gorilla trekking in Bwindi Forest"></div>
+  </div>
+  <button class="hero-control hero-prev" type="button" aria-label="Previous hero image"><i class="fa-solid fa-arrow-left"></i></button>
+  <button class="hero-control hero-next" type="button" aria-label="Next hero image"><i class="fa-solid fa-arrow-right"></i></button>
+  <div class="hero-dots" role="tablist" aria-label="Choose hero image">
+    <button class="hero-dot is-active" type="button" role="tab" aria-label="Show hero image 1" aria-selected="true" data-slide-to="0"></button>
+    <button class="hero-dot" type="button" role="tab" aria-label="Show hero image 2" aria-selected="false" data-slide-to="1"></button>
+    <button class="hero-dot" type="button" role="tab" aria-label="Show hero image 3" aria-selected="false" data-slide-to="2"></button>
+    <button class="hero-dot" type="button" role="tab" aria-label="Show hero image 4" aria-selected="false" data-slide-to="3"></button>
+    <button class="hero-dot" type="button" role="tab" aria-label="Show hero image 5" aria-selected="false" data-slide-to="4"></button>
+  </div>
   <div class="container">
     <span class="hero-tag">Uganda · Rwanda · Kenya · Tanzania</span>
     <h1>SPT Safaris.<br>Discover the <span>Pearl of Africa.</span></h1>
@@ -87,7 +105,7 @@
           <option>Masai Mara National Reserve, Kenya</option>  
           <option>Queen Elizabeth National Park</option>
           <option>Murchison Falls National Park</option>
-          <option>Plain upe Nation Game Reserve</option>
+          <option>Pian Upe Wildlife Reserve</option>
           <option>Kibale National Park</option>
           <option>Semuliki National Park</option>
           <option>Lake Nakuru National Park</option>
@@ -200,32 +218,32 @@
     <div class="lodges-grid">
       
       <a href="contact.html" class="lodge-card">
-        <div class="lodge-media"><img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=600&auto=format&fit=crop" alt="Tented camp"></div>
+        <div class="lodge-media"><img src="New-S-5-Ug.-Jan.2016-014.jpg"></div>
         <div class="lodge-body">
           <span class="lodge-location"><i class="fa-solid fa-location-dot"></i> Bwindi, Uganda</span>
-          <h4>Buhoma Lodge</h4>
-          <p>Perched on the edge of Bwindi Forest with stunning canopy views — the perfect base for gorilla trekking.</p>
+          <h4>Engagi Lodge</h4>
+          <p>Perched above Bwindi Forest, offering private wooden cottages, scenic river views, and quick access to gorilla trekking.</p>
           <div class="lodge-meta"><span><i class="fa-solid fa-star" style="color:var(--orange-600);"></i> Luxury</span><span><i class="fa-solid fa-wifi"></i> WiFi</span><span><i class="fa-solid fa-utensils"></i> Full Board</span></div>
         </div>
       </a>
 
       <a href="contact.html" class="lodge-card">
-        <div class="lodge-media"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600&auto=format&fit=crop" alt="Safari lodge"></div>
+        <div class="lodge-media"><img src="Engiri-Reception-2024.jpg" alt="Safari lodge"></div>
         <div class="lodge-body">
           <span class="lodge-location"><i class="fa-solid fa-location-dot"></i> Queen Elizabeth NP, Uganda</span>
-          <h4>Mweya Safari Lodge</h4>
-          <p>Iconic lodge on a peninsula overlooking the Kazinga Channel — wake up to elephant sightings from your balcony.</p>
-          <div class="lodge-meta"><span><i class="fa-solid fa-star" style="color:var(--orange-600);"></i> Mid-Range</span><span><i class="fa-solid fa-wifi"></i> WiFi</span><span><i class="fa-solid fa-water"></i> Pool</span></div>
+          <h4>Engiri Game Lodge & Campsite</h4>
+          <p>Nestled near Queen Elizabeth NP, offering budget-friendly rooms, camping, and vibrant wildlife views. Provides easy access to Kazinga Channel boat cruises and relaxed evening campfires.</p>
+          <div class="lodge-meta"><span><i class="fa-solid fa-star" style="color:var(--orange-600);"></i> Mid-Range </span><span><i class="fa-solid fa-wifi"></i> WiFi </span><span><i class="fa-solid fa-water"></i> Restaurant & Bar </span></div>
         </div>
       </a>
 
       <a href="contact.html" class="lodge-card">
-        <div class="lodge-media"><img src="https://images.unsplash.com/photo-1545579133-99bb5ab189bd?q=80&w=600&auto=format&fit=crop" alt="Eco lodge"></div>
+        <div class="lodge-media"><img src="Paraa Safari Lodge in the Murchison Falls National Park.jpg"></div>
         <div class="lodge-body">
-          <span class="lodge-location"><i class="fa-solid fa-location-dot"></i> Masai Mara, Kenya</span>
-          <h4>Enkorok Mara Camp</h4>
-          <p>Authentic tented camp in the heart of the Mara, perfectly positioned for the Great Migration river crossings.</p>
-          <div class="lodge-meta"><span><i class="fa-solid fa-star" style="color:var(--orange-600);"></i> Mid-Range</span><span><i class="fa-solid fa-wifi"></i> WiFi</span><span><i class="fa-solid fa-fire"></i> Campfire</span></div>
+          <span class="lodge-location"><i class="fa-solid fa-location-dot"></i> Murchison Falls NP, Uganda</span>
+          <h4>Paraa Safari Lodge</h4>
+          <p>Situated on the northern bank of the Nile, offering luxury stays with sweeping river vistas. Features an outdoor pool with a swim-up bar and prime access to game drive tracks.</p>
+          <div class="lodge-meta"><span><i class="fa-solid fa-star" style="color:var(--orange-600);"></i> Luxury</span><span><i class="fa-solid fa-wifi"></i> WiFi</span><span><i class="fa-solid fa-fire"></i> Restaurant & Bar</span></div>
         </div>
       </a>
 
@@ -255,6 +273,24 @@
         <li><i class="fa-solid fa-circle-check"></i> Carbon-conscious travel planning</li>
       </ul>
       <a href="about.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> More About Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY VIDEO -->
+<section class="story-video-section">
+  <div class="container story-video-grid">
+    <div class="story-video-copy">
+      <div class="eyebrow">See SPT differently</div>
+      <h2 class="section-title">The people behind your wild.</h2>
+      <p class="section-sub">Use this space for a short film about your guides, your communities, and the way SPT Safaris turns a route into a relationship.</p>
+      <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-film"></i> Ask About Our Story</a>
+    </div>
+    <div class="story-video-frame">
+      <video controls preload="metadata" poster="sptpicture.png" aria-label="SPT Safaris company story video">
+        Your company video will play here once an MP4 is added to this video element.
+      </video>
+      <div class="video-slot-note"><i class="fa-solid fa-video"></i><span>Company story video slot</span></div>
     </div>
   </div>
 </section>
