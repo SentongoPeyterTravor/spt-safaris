@@ -1,0 +1,38 @@
+# SPT Safaris - SiteGround / Apache configuration
+DirectoryIndex index.html
+
+# Keep all traffic on HTTPS after the SSL certificate is active.
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Serve the static home page for the domain root.
+RewriteRule ^$ index.html [L]
+
+# Helpful browser caching for static assets.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>
+
+# Compress text-based assets when supported.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml
+</IfModule>
+
+# Prevent directory listings.
+Options -Indexes
+
+# Basic security headers; do not block external Google Fonts, Font Awesome, EmailJS, maps, or image CDNs.
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+ErrorDocument 404 /404.html

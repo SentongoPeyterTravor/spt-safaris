@@ -16,9 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = (location.pathname.split('/').pop() || 'index.html').replace('.html','') || 'index';
   const destinationPages = ['bwindi', 'queen-elizabeth', 'masai-mara', 'serengeti', 'murchison-falls', 'rwenzori-mountains', 'lake-mburo', 'volcanoes'];
   const navPage = destinationPages.includes(page) ? 'destinations' : page;
+  document.querySelectorAll('.nav-links').forEach(nav => {
+    const destinationsLink = nav.querySelector('a[href="destinations.html"]');
+    const toursItem = nav.querySelector('.dropdown');
+    if(destinationsLink && toursItem) nav.insertBefore(destinationsLink, toursItem);
+    nav.querySelectorAll('a[href="community.html"], a[href="gallery.html"], a[href="blog.html"]').forEach(link => link.remove());
+  });
   document.querySelectorAll('.nav-links > a[data-nav], .nav-links .dropdown > a[data-nav]').forEach(link=>{
     if(link.dataset.nav === navPage) link.classList.add('active');
   });
+
+  // Add the shared conversion strip to pages that do not already include one.
+  if(!document.querySelector('.cta-wrap')){
+    const footer = document.querySelector('.footer');
+    if(footer){
+      const cta = document.createElement('section');
+      cta.className = 'cta-wrap footer-cta';
+      cta.innerHTML = '<div class="container"><div class="cta-strip"><div><h3>Ready to plan your safari?</h3><p>Talk to our safari consultants and get a free, no-obligation itinerary today.</p></div><a href="contact.html" class="btn" style="background:#fff;color:var(--orange-600);"><i class="fa-solid fa-phone"></i> Get in Touch</a></div></div>';
+      footer.before(cta);
+    }
+  }
 
   // Mobile nav toggle
   const hamburger = document.querySelector('.hamburger');

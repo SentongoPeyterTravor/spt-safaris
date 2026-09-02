@@ -25,6 +25,7 @@ function showFormMessage(form, message, isSuccess = true) {
   if (msgElement) {
     msgElement.textContent = message;
     msgElement.style.color = isSuccess ? '#127a3d' : '#b42318';
+    msgElement.setAttribute('role', isSuccess ? 'status' : 'alert');
   }
 }
 
@@ -41,6 +42,13 @@ function handleContactForm(form) {
   const msg = form.querySelector('.form-msg');
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+
+  // Honeypot field: real visitors never see or fill this field.
+  if (form.querySelector('input[name="website"]')?.value.trim()) {
+    showFormMessage(form, 'Thank you! Your message has been received.');
+    form.reset();
+    return;
+  }
 
   // Validate EmailJS availability
   if (!window.emailjs || typeof emailjs.sendForm !== 'function') {
